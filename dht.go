@@ -237,7 +237,7 @@ func decodeDHTxxPulses(sensorType SensorType, pulses []Pulse) (temperature float
 	temperature, humidity = 0.0, 0.0
 	if sensorType == DHT11 {
 		humidity = float32(b0)
-		temperature = float32(b2)
+		temperature = float32(b2) + float32(b3)/10.0
 	} else if sensorType == DHT12 {
 		humidity = float32(b0) + float32(b1)/10.0
 		temperature = float32(b2) + float32(b3)/10.0
